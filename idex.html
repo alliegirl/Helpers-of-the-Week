@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Today's Helpers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <h1>Today's Helpers</h1>
+      <p class="sub">
+        Add your 2nd + 3rd grade lists, click <strong>Save Lists</strong>, then <strong>Assign Jobs</strong>.
+      </p>
+    </header>
+
+    <section class="controls" aria-label="Student lists and controls">
+      <div class="list-card">
+        <h2>Third Grade List</h2>
+        <p class="hint">One student per line</p>
+        <textarea id="thirdList" placeholder="Add 3rd grade names…"></textarea>
+      </div>
+
+      <div class="list-card">
+        <h2>Second Grade List</h2>
+        <p class="hint">One student per line</p>
+        <textarea id="secondList" placeholder="Add 2nd grade names…"></textarea>
+      </div>
+
+      <div class="buttons">
+        <button id="saveBtn" type="button">Save Lists</button>
+        <button id="assignBtn" type="button" class="primary">Assign Jobs</button>
+        <button id="clearBtn" type="button" class="ghost">Clear Saved Lists</button>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Job cards">
+      <!-- Vivid Red -->
+      <article class="blob blob-red">
+        <div class="blob-inner">
+          <div class="cream-box">
+            <div class="job-title">Paper Passers</div>
+            <div class="job-student" id="paperPassers">—</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Baby Blue -->
+      <article class="blob blob-blue">
+        <div class="blob-inner">
+          <div class="cream-box">
+            <div class="job-title">Messenger</div>
+            <div class="job-student" id="messenger">—</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Rose Mist -->
+      <article class="blob blob-pink">
+        <div class="blob-inner">
+          <div class="cream-box">
+            <div class="job-title">Weekly Helper 1</div>
+            <div class="job-grade">(Third Grade)</div>
+            <div class="job-student" id="weeklyHelper1">—</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Butter Cream -->
+      <article class="blob blob-yellow">
+        <div class="blob-inner">
+          <div class="cream-box">
+            <div class="job-title">Weekly Helper 2</div>
+            <div class="job-grade">(Second Grade)</div>
+            <div class="job-student" id="weeklyHelper2">—</div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <p>Tip: The app saves your lists in your browser (localStorage) so you don’t retype them.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
