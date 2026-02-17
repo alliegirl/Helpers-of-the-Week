@@ -1,0 +1,217 @@
+:root{
+  /* Your exact colors from the image */
+  --vivid-red: #CF1F2A;
+  --baby-blue: #C4D8FC;
+  --rose-mist: #F5BAD5;
+  --butter-cream: #F7E594;
+
+  /* Cream center rectangle (slightly lighter than butter cream) */
+  --cream-box: #FBF7EA;
+
+  --text-dark: #3b2b1f;
+  --shadow: 0 10px 24px rgba(0,0,0,0.10);
+  --soft: 0 4px 10px rgba(0,0,0,0.10);
+}
+
+* { box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+  color: var(--text-dark);
+
+  /* subtle “paper” feel (no images needed) */
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(0,0,0,0.03), transparent 60%),
+    radial-gradient(900px 500px at 80% 30%, rgba(0,0,0,0.03), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, #fbfbfb 100%);
+}
+
+.page{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 28px 18px 40px;
+}
+
+.header h1{
+  margin: 0 0 6px 0;
+  font-size: 40px;
+  letter-spacing: 0.2px;
+}
+
+.sub{
+  margin: 0 0 18px 0;
+  opacity: 0.85;
+}
+
+.controls{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+
+.list-card{
+  background: white;
+  border-radius: 18px;
+  box-shadow: var(--soft);
+  padding: 14px;
+}
+
+.list-card h2{
+  margin: 0 0 2px 0;
+  font-size: 18px;
+}
+
+.hint{
+  margin: 0 0 10px 0;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+textarea{
+  width: 100%;
+  min-height: 130px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.12);
+  padding: 10px;
+  font-size: 14px;
+  outline: none;
+}
+
+textarea:focus{
+  border-color: rgba(0,0,0,0.25);
+}
+
+.buttons{
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button{
+  border: none;
+  padding: 11px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: var(--soft);
+  background: white;
+  color: var(--text-dark);
+  font-weight: 650;
+}
+
+button.primary{
+  background: var(--text-dark);
+  color: white;
+}
+
+button.ghost{
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.14);
+  box-shadow: none;
+}
+
+button:active{
+  transform: translateY(1px);
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 10px;
+}
+
+/* Scallop “blob” shape using a radial scallop mask */
+.blob{
+  position: relative;
+  border-radius: 30px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  min-height: 210px;
+
+  /* scallop effect */
+  background-size: 40px 40px;
+  background-position: center;
+}
+
+/* Each blob uses your 4 colors */
+.blob-red { background-color: var(--vivid-red); }
+.blob-blue { background-color: var(--baby-blue); }
+.blob-pink { background-color: var(--rose-mist); }
+.blob-yellow { background-color: var(--butter-cream); }
+
+/* This overlay creates the “scalloped” edge feel */
+.blob::before{
+  content:"";
+  position:absolute;
+  inset:-14px;
+  background:
+    radial-gradient(circle at 20px 20px, rgba(255,255,255,0.0) 19px, rgba(255,255,255,0.18) 20px, rgba(255,255,255,0.0) 21px) 0 0 / 40px 40px,
+    radial-gradient(circle at 20px 20px, rgba(0,0,0,0.08) 19px, rgba(0,0,0,0.0) 21px) 0 0 / 40px 40px;
+  pointer-events: none;
+  opacity: 0.55;
+}
+
+/* Inner alignment */
+.blob-inner{
+  position: relative;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* Cream rounded rectangle in the middle */
+.cream-box{
+  width: min(340px, 92%);
+  background: var(--cream-box);
+  border-radius: 22px;
+  padding: 16px 16px 14px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.14);
+  border: 2px solid rgba(0,0,0,0.07);
+}
+
+/* Typography inside the cream rectangle */
+.job-title{
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  margin-bottom: 6px;
+}
+
+.job-grade{
+  font-size: 13px;
+  font-weight: 750;
+  opacity: 0.75;
+  margin-top: -2px;
+  margin-bottom: 10px;
+}
+
+.job-student{
+  font-size: 20px;
+  font-weight: 850;
+  line-height: 1.25;
+}
+
+/* nicer multi-name display for Paper Passers */
+.job-student .line{
+  display: block;
+}
+
+/* Footer */
+.footer{
+  margin-top: 18px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* Responsive */
+@media (max-width: 760px){
+  .controls{ grid-template-columns: 1fr; }
+  .grid{ grid-template-columns: 1fr; }
+  .header h1{ font-size: 34px; }
+}
